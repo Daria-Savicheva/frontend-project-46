@@ -1,12 +1,12 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "type": "module",
   "description": "[![Actions Status](https://github.com/Daria-Savicheva/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Daria-Savicheva/frontend-project-46/actions)",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "main": "index.js",
-  "type": "module",
+  "main": "gendiff.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,9 @@
     "commander": "^10.0.0"
   },
   "devDependencies": {
-    "@types/commander": "^2.12.2"
+    "@types/commander": "^2.12.2",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
