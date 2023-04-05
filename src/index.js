@@ -13,20 +13,19 @@ const genDiff = (path1, path2) => {
 
   const data1 = JSON.parse(getData1);
   const data2 = JSON.parse(getData2);
-  // const data1 = getData(bildPath(path1))
-  
+
   const keys = _.union(Object.keys(data1), Object.keys(data2));
   const sortedKeys = _.sortBy(keys);
   let result = '';
   console.log('{');
   for (const key of sortedKeys) {
-    if (!data2.hasOwnProperty(key)) {
+    if (!Object.hasOwn(data2, key)) {
       result = `- ${[key]}: ${data1[key]}`;
       console.log(result);
-    } else if (!data1.hasOwnProperty(key)) {
+    } else if (!Object.hasOwn(data1, key)) {
       result = `+ ${[key]}: ${data2[key]}`;
       console.log(result);
-    } else if (data1[key] !== data2[key]){
+    } else if (data1[key] !== data2[key]) {
       result = `- ${[key]}: ${data1[key]}`;
       console.log(result);
       result = `+ ${[key]}: ${data2[key]}`;
