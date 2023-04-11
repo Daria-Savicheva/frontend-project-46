@@ -16,30 +16,27 @@ const genDiff = (path1, path2, formatName = 'stylish') => {
   const data1 = JSON.parse(getData1);
   const data2 = JSON.parse(getData2);
 
-  const keys = _.union(Object.keys(data1), Object.keys(data2));
-  const sortedKeys = _.sortBy(keys);
-//  let result = '';
-//  console.log('{');
-//  for (const key of sortedKeys) {
-//    if (!Object.hasOwn(data2, key)) {
-//      result = `- ${[key]}: ${data1[key]}`;
-//      console.log(result);
-//    } else if (!Object.hasOwn(data1, key)) {
-//      result = `+ ${[key]}: ${data2[key]}`;
-//      console.log(result);
-//    } else if (data1[key] !== data2[key]) {
-//      result = `- ${[key]}: ${data1[key]}`;
-//      console.log(result);
-//      result = `+ ${[key]}: ${data2[key]}`;
-//  console.log(result);
-// } else {
-// result = `  ${[key]}: ${data2[key]}`;
-//  console.log(result);
-  //  }
-  // }
-  // return '}';
-  const differences = getFormat(compareData(data1, data2), formatName);
-  return differences;
+  const last = _.union(Object.keys(data1), Object.keys(data2));
+  const final = _.sortBy(last);
+
+  const result = final.map((index) => {
+    if (!Object.hasOwn(data1, index)) {
+      return `-  ${index}:${data2[index]}`;
+    }
+    if (!Object.hasOwn(data2, index)) {
+      return `+  ${index}:${data1[index]}`;
+    }
+    if (data1[index] !== data2[index]) {
+      return (`-  ${index}:${data1[index]}\n+  ${index}:${data2[index]}`);
+    }
+    if (data1[index] === data2[index]) {
+      return `   ${index}:${data1[index]}`;
+    }
+  });
+
+  //const differences = getFormat(compareData(data1, data2), formatName);
+  //return differences;
+  return (`{\n${result.join('\n')}\n}`);
 };
 
 export default genDiff;
