@@ -1,5 +1,5 @@
-install:
-	npm install
+install: install-deps
+	npx simple-git-hooks
 
 publish:
 	npm publish --dry-run
@@ -7,8 +7,11 @@ publish:
 lint:
 	npx eslint .
 
+install-deps:
+	npm ci
+
 test:
-	node --experimental-vm-modules node_modules/jest/bin/jest.js
+	npm test
 
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
