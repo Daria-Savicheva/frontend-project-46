@@ -1,12 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
-import compareData from './compareDate.js';
-import getFormat from './formates/index.js';
 
 const bildPath = (way) => path.resolve(process.cwd(), way);
 
-const genDiff = (path1, path2, formatName = 'stylish') => {
+const genDiff = (path1, path2) => {
   const absolutePath1 = bildPath(path1);
   const absolutePath2 = bildPath(path2);
 
@@ -19,6 +17,7 @@ const genDiff = (path1, path2, formatName = 'stylish') => {
   const last = _.union(Object.keys(data1), Object.keys(data2));
   const final = _.sortBy(last);
 
+  // eslint-disable-next-line array-callback-return, consistent-return
   const result = final.map((index) => {
     if (!Object.hasOwn(data1, index)) {
       return `-  ${index}:${data2[index]}`;
@@ -34,8 +33,6 @@ const genDiff = (path1, path2, formatName = 'stylish') => {
     }
   });
 
-  //const differences = getFormat(compareData(data1, data2), formatName);
-  //return differences;
   return (`{\n${result.join('\n')}\n}`);
 };
 
