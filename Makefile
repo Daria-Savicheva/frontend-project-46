@@ -1,5 +1,4 @@
 install: install-deps
-	npx simple-git-hooks
 
 publish:
 	npm publish --dry-run
