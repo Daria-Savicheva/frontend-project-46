@@ -6,3 +6,6 @@ publish:
 
 lint:
 	npx eslint .
+
+install-deps:
+	install ci
