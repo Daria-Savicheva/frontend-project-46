@@ -8,8 +8,5 @@ JSON files
 <a href="https://asciinema.org/a/pf40xnLzGK5gT3E2dIhexM3ys" target="_blank"><img src="https://asciinema.org/a/pf40xnLzGK5gT3E2dIhexM3ys.svg" /></a>
 
 YAML files:
-<<<<<<< HEAD
 <a href="https://asciinema.org/a/576994" target="_blank"><img src="https://asciinema.org/a/576994.svg" /></a>
-=======
-[![asciicast](https://asciinema.org/a/576990.svg)](https://asciinema.org/a/576990)
->>>>>>> refs/remotes/origin/main
+
