@@ -5,3 +5,5 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e2244d5fcad9fb22f9db/test_coverage)](https://codeclimate.com/github/Daria-Savicheva/frontend-project-46/test_coverage)
 
 <a href="https://asciinema.org/a/pf40xnLzGK5gT3E2dIhexM3ys" target="_blank"><img src="https://asciinema.org/a/pf40xnLzGK5gT3E2dIhexM3ys.svg" /></a>
+
+[![asciicast](https://asciinema.org/a/576990.svg)](https://asciinema.org/a/576990)
