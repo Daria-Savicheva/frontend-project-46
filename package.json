@@ -8,7 +8,7 @@
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "test": "npm jest"
+    "test": "npx jest"
   },
   "author": "",
   "license": "ISC",
