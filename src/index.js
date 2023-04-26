@@ -2,10 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import parser from './parse.js';
+import compareData from './compareDate.js';
+import getFormat from './formates/index.js';
 
 const bildPath = (way) => path.resolve(process.cwd(), way);
 
-const genDiff = (path1, path2) => {
+const genDiff = (path1, path2, formatName = 'stylish') => {
   const absolutePath1 = bildPath(path1);
   const absolutePath2 = bildPath(path2);
 
@@ -15,26 +17,8 @@ const genDiff = (path1, path2) => {
   const data1 = parser(getData1);
   const data2 = parser(getData2);
 
-  const last = _.union(Object.keys(data1), Object.keys(data2));
-  const final = _.sortBy(last);
-
-  // eslint-disable-next-line array-callback-return, consistent-return
-  const result = final.map((index) => {
-    if (!Object.hasOwn(data1, index)) {
-      return `-  ${index}:${data2[index]}`;
-    }
-    if (!Object.hasOwn(data2, index)) {
-      return `+  ${index}:${data1[index]}`;
-    }
-    if (data1[index] !== data2[index]) {
-      return (`-  ${index}:${data1[index]}\n+  ${index}:${data2[index]}`);
-    }
-    if (data1[index] === data2[index]) {
-      return `   ${index}:${data1[index]}`;
-    }
-  });
-
-  return (`{\n${result.join('\n')}\n}`);
+  const differences = getFormat(compareData(data1, data2), formatName);
+  return differences;
 };
 
 export default genDiff;
