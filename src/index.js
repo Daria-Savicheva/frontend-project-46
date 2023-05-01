@@ -13,8 +13,8 @@ const genDiff = (path1, path2, formatName = 'stylish') => {
   const getData1 = fs.readFileSync(absolutePath1, 'utf-8');
   const getData2 = fs.readFileSync(absolutePath2, 'utf-8');
 
-  const data1 = parser(getData1);
-  const data2 = parser(getData2);
+  const data1 = parser(getData1, path1.split('.')[1]);
+  const data2 = parser(getData2, path2.split('.')[1]);
 
   const differences = getFormat(compareData(data1, data2), formatName);
   return differences;
