@@ -4,13 +4,19 @@
 ![GitHub Action](https://github.com/Daria-Savicheva/frontend-project-46/actions/workflows/github-actions-demo.yml/badge.svg)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e2244d5fcad9fb22f9db/test_coverage)](https://codeclimate.com/github/Daria-Savicheva/frontend-project-46/test_coverage)
 
+Вычислитель отличий – программа, определяющая разницу между двумя структурами данных.
+Возможности утилиты:
+
+* Поддержка разных входных форматов: yaml, json
+* Генерация отчета в виде plain text, stylish и json
+
 ## Setup
 ```bash
 make install
 npm link
 ```
 
-Defference between JSON files, YML files:
+Defference between JSON files, YML files (format'stylish'):
 <a href="https://asciinema.org/a/581793" target="_blank"><img src="https://asciinema.org/a/581793.svg" /></a>
 
 Defference between JSON files, YML files (format 'plain'):
