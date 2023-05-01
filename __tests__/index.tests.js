@@ -20,7 +20,7 @@ const firstYML = getFixturePath('file1.yml');
 const secondYML = getFixturePath('file2.yml');
 
 const expectedStylish = getReadFile('resultStylish.txt').trim();
-// const expectedPlain = getReadFile('resultPlain.txt').trim();
+const expectedPlain = getReadFile('resultPlain.txt').trim();
 const expectedJSON = getReadFile('resultJSON.txt').trim();
 
 test('#1 difference between two JSON files, format stylish', () => {
@@ -45,4 +45,20 @@ test('#5 difference between two JSON files, format = default', () => {
 
 test('#6 difference between two YML files, format = default', () => {
   expect(genDiff(firstYML, secondYML)).toEqual(expectedStylish);
+});
+
+test('#7 difference between JSON and YML files, format = default', () => {
+  expect(genDiff(firstJSON, secondYML)).toEqual(expectedStylish);
+});
+
+test('#8 difference between two JSON files, format plain', () => {
+  expect(genDiff(firstJSON, secondJSON, 'plain')).toEqual(expectedPlain);
+});
+
+test('#9 difference between two YML files, format plain', () => {
+  expect(genDiff(firstYML, secondYML, 'plain')).toEqual(expectedPlain);
+});
+
+test('#10 difference between YML and JSON files, format plain', () => {
+  expect(genDiff(firstYML, secondJSON, 'plain')).toEqual(expectedPlain);
 });
