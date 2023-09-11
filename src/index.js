@@ -4,9 +4,9 @@ import parser from './parse.js';
 import compareData from './compareDate.js';
 import getFormat from './formates/index.js';
 
-const bildPath = (way) => path.resolve(process.cwd(), way);
+const bildPath = (path0) => path.resolve(process.cwd(), path0);
 
-const genDiff = (path1, path2, formatName = 'stylish') => {
+function genDiff(path1, path2, formatName = 'stylish') {
   const absolutePath1 = bildPath(path1);
   const absolutePath2 = bildPath(path2);
 
@@ -18,6 +18,6 @@ const genDiff = (path1, path2, formatName = 'stylish') => {
 
   const differences = getFormat(compareData(data1, data2), formatName);
   return differences;
-};
+}
 
 export default genDiff;
